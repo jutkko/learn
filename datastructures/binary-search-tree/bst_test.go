@@ -17,7 +17,7 @@ func TestInsert(t *testing.T) {
 	}
 }
 
-func TestMinNoMin(t *testing.T) {
+func TestMinNoElem(t *testing.T) {
 	bst := Bst{}
 
 	if bst.Min() != nil {
@@ -41,6 +41,18 @@ func TestMin(t *testing.T) {
 	}
 }
 
+func TestExistsNoElem(t *testing.T) {
+	bst := Bst{}
+
+	if bst.Exists(0) {
+		t.Fatalf("Exists is not right")
+	}
+
+	if bst.Exists(10) {
+		t.Fatalf("Exists is not right")
+	}
+}
+
 func TestExists(t *testing.T) {
 	bst := Bst{}
 	bst.Insert(9)
@@ -53,6 +65,10 @@ func TestExists(t *testing.T) {
 	bst.Insert(4)
 
 	if !bst.Exists(0) {
-		t.Fatalf("Find is not right")
+		t.Fatalf("Exists is not right")
+	}
+
+	if bst.Exists(10) {
+		t.Fatalf("Exists is not right")
 	}
 }

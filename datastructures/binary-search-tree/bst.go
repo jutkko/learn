@@ -43,6 +43,10 @@ func (n *Node) min() *Node {
 }
 
 func (n *Node) exists(key int) bool {
+	if n == nil {
+		return false
+	}
+
 	if n.Elem == key {
 		return true
 	}
@@ -71,9 +75,5 @@ func (b *Bst) Min() *Node {
 }
 
 func (b *Bst) Exists(key int) bool {
-	if b.Root == nil {
-		return false
-	}
-
 	return b.Root.exists(key)
 }
