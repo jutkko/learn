@@ -72,3 +72,51 @@ func TestExists(t *testing.T) {
 		t.Fatalf("Exists is not right")
 	}
 }
+
+func TestSizeNoElem(t *testing.T) {
+	bst := Bst{}
+
+	if bst.Size() != 0 {
+		t.Fatalf("Size is not right")
+	}
+}
+
+func TestSize(t *testing.T) {
+	bst := Bst{}
+	bst.Insert(9)
+	bst.Insert(0)
+	bst.Insert(5)
+	bst.Insert(5)
+	bst.Insert(5)
+	bst.Insert(-3)
+	bst.Insert(1)
+	bst.Insert(4)
+
+	if bst.Size() != 8 {
+		t.Fatalf("Size is not right")
+	}
+}
+
+func TestHeightNoElem(t *testing.T) {
+	bst := Bst{}
+
+	if bst.Height() != 0 {
+		t.Fatalf("Height is not right")
+	}
+}
+
+func TestHeightElem(t *testing.T) {
+	bst := Bst{}
+	bst.Insert(9)
+	bst.Insert(0)
+	bst.Insert(5)
+	bst.Insert(5)
+	bst.Insert(5)
+	bst.Insert(-3)
+	bst.Insert(1)
+	bst.Insert(4)
+
+	if bst.Height() != 7 {
+		t.Fatalf("Height is not right")
+	}
+}

@@ -58,6 +58,30 @@ func (n *Node) exists(key int) bool {
 	}
 }
 
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+
+	return b
+}
+
+func (n *Node) size() int {
+	if n == nil {
+		return 0
+	}
+
+	return 1 + n.Left.size() + n.Right.size()
+}
+
+func (n *Node) height() int {
+	if n == nil {
+		return 0
+	}
+
+	return max(1+n.Left.height(), 1+n.Right.height())
+}
+
 type Bst struct {
 	Root *Node
 }
@@ -76,4 +100,12 @@ func (b *Bst) Min() *Node {
 
 func (b *Bst) Exists(key int) bool {
 	return b.Root.exists(key)
+}
+
+func (b *Bst) Size() int {
+	return b.Root.size()
+}
+
+func (b *Bst) Height() int {
+	return b.Root.height()
 }
