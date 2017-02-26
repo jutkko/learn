@@ -7,7 +7,6 @@ import (
 )
 
 type node struct {
-	prev *node
 	next *node
 	elem int
 }
