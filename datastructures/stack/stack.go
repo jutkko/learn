@@ -6,28 +6,28 @@ import (
 	"os"
 )
 
-type Node struct {
-	child *Node
-	Elem  int
+type node struct {
+	child *node
+	elem  int
 }
 
-func (n *Node) push(e int) *Node {
+func (n *node) push(e int) *node {
 	if n == nil {
-		return &Node{Elem: e}
+		return &node{elem: e}
 	}
 
-	return &Node{Elem: e, child: n}
+	return &node{elem: e, child: n}
 }
 
-func (n *Node) print() string {
+func (n *node) print() string {
 	if n == nil {
 		return ""
 	}
 
-	return fmt.Sprintf("%d ", n.Elem) + n.child.print()
+	return fmt.Sprintf("%d ", n.elem) + n.child.print()
 }
 
-func (n *Node) pop() *Node {
+func (n *node) pop() *node {
 	if n == nil {
 		return nil
 	}
@@ -36,7 +36,7 @@ func (n *Node) pop() *Node {
 }
 
 type Stack struct {
-	head *Node
+	head *node
 }
 
 func (s *Stack) Push(e int) {
@@ -47,7 +47,7 @@ func (s *Stack) Pop() int {
 	var result int
 
 	if s.head != nil {
-		result = s.head.Elem
+		result = s.head.elem
 	} else {
 		log.Fatal("No elem left!")
 		os.Exit(1)
