@@ -9,7 +9,6 @@ def find_percentage(scoreMap, name):
     average = sum / len(scores)
 
     # for formatting to print exactly two digits after decimal point
-    print("{0:.2f}".format(average))
     return average
 
 class TestFindThePercentage(unittest.TestCase):

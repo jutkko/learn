@@ -1,7 +1,6 @@
 import unittest
 
 def cuboid(x, y, z, n):
-    print(x, y, z, n)
     x += 1
     y += 1
     z += 1
