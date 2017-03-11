@@ -1,7 +1,7 @@
 import unittest
 
 def find_second_largest(list):
-    result = None
+    result = -101
     max = -101
     for x in list:
         if max < x:
