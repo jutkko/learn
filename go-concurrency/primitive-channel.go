@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func createCounter(start int) chan int {
 	next := make(chan int)
 
@@ -14,16 +16,14 @@ func createCounter(start int) chan int {
 }
 
 func main() {
-	// count := createCounter(0)
+	count := createCounter(0)
 
-	// fmt.Printf("Count is %d\n", <-count)
-	// fmt.Printf("Count is %d\n", <-count)
-	// fmt.Printf("Count is %d\n", <-count)
-	// fmt.Printf("Count is %d\n", <-count)
-	// fmt.Printf("Count is %d\n", <-count)
-	// fmt.Printf("Count is %d\n", <-count)
+	fmt.Printf("Count is %d\n", <-count)
+	fmt.Printf("Count is %d\n", <-count)
+	fmt.Printf("Count is %d\n", <-count)
+	fmt.Printf("Count is %d\n", <-count)
+	fmt.Printf("Count is %d\n", <-count)
+	fmt.Printf("Count is %d\n", <-count)
 
-	// close(count)
-
-	rollDice()
+	close(count)
 }

@@ -1,24 +1,32 @@
-package main
+package select_examples
 
 import (
 	"fmt"
 	"math/rand"
+	"time"
 )
 
 func rollDice() {
 	channels := make([]chan bool, 6)
 
-	for i := range channels {
+	for i, _ := range channels {
 		channels[i] = make(chan bool)
 	}
+
+	defer func() {
+		for _, c := range channels {
+			close(c)
+		}
+	}()
 
 	go func() {
 		for {
 			channels[rand.Intn(6)] <- true
+			time.Sleep(time.Second)
 		}
 	}()
 
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 5; i++ {
 		var x int
 		select {
 		case <-channels[0]:
